@@ -4,7 +4,9 @@ import Control.Monad
 import Text.Printf (printf)
 
 type Velocity = (Integer, Integer)
+
 type Position = (Integer, Integer)
+
 type Ball = (Position, Velocity)
 
 readInteger :: IO Integer
@@ -32,8 +34,8 @@ nextVelocity n ((x, y), (vx, vy))
   | x == n && y == n = (0, 0)
   | otherwise = (nvx, nvy)
   where
-    nvx = if x == 0 || x == n then -vx else vx
-    nvy = if y == 0 || y == n then -vy else vy
+    nvx = if x == 0 || x == n then - vx else vx
+    nvy = if y == 0 || y == n then - vy else vy
 
 findEdge :: Integer -> Ball -> Ball
 findEdge n ((x, y), (vx, vy)) = ((ex, ey), (nvx, nvy))
@@ -47,11 +49,22 @@ findEdge n ((x, y), (vx, vy)) = ((ex, ey), (nvx, nvy))
 bounceSequence :: Integer -> Position -> [Ball]
 bounceSequence n p = iterate (findEdge n) (p, (1, 1))
 
+solve :: Integer -> Integer -> Integer -> Integer -> Position
+solve n k x y
+  | x == 0 && y == 0 = (0, 0)
+  | x == y = (n, n)
+  | x == n && y == 0 = (n, 0)
+  | x == 0 && y == n = (0, n)
+  | otherwise = (px, py)
+  where
+    (_ : bounces) = take 5 $ bounceSequence n (x, y)
+    ((px, py), _) = bounces !! ((fromInteger k - 1) `mod` 4)
+
 runCase :: IO ()
 runCase = do
   [n, k, x, y] <- readIntegers
-  let (_:bounces) = take 5 $ bounceSequence n (x, y)
-  let ((px, py), _) = bounces !! (((fromInteger k) - 1) `mod` 4)
+  let (_ : bounces) = take 5 $ bounceSequence n (x, y)
+  let (px, py) = solve n k x y
   putStrLn $ printf "%d %d" px py
 
 main :: IO ()
