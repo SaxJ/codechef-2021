@@ -32,6 +32,7 @@ executable billrd
   build-depends:
       array
     , base >=4.7 && <5
+    , text
   default-language: Haskell2010
 
 executable decodeit
@@ -44,6 +45,7 @@ executable decodeit
   build-depends:
       array
     , base >=4.7 && <5
+    , text
   default-language: Haskell2010
 
 executable divthree
@@ -56,6 +58,7 @@ executable divthree
   build-depends:
       array
     , base >=4.7 && <5
+    , text
   default-language: Haskell2010
 
 executable fairelct
@@ -68,6 +71,7 @@ executable fairelct
   build-depends:
       array
     , base >=4.7 && <5
+    , text
   default-language: Haskell2010
 
 test-suite codechef2021-test
@@ -82,4 +86,5 @@ test-suite codechef2021-test
       array
     , base >=4.7 && <5
     , codechef2021
+    , text
   default-language: Haskell2010
