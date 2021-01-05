@@ -1,6 +1,7 @@
 module Main where
 
 import Control.Monad
+import Data.Array
 import Text.Printf (printf)
 
 type Velocity = (Integer, Integer)
@@ -57,8 +58,8 @@ solve n k x y
   | x == 0 && y == n = (0, n)
   | otherwise = (px, py)
   where
-    (_ : bounces) = take 5 $ bounceSequence n (x, y)
-    ((px, py), _) = bounces !! ((fromInteger k - 1) `mod` 4)
+    bounces = listArray (0, 5) $ take 5 $ bounceSequence n (x, y)
+    ((px, py), _) = bounces ! (((fromInteger k - 1) `mod` 4) + 1)
 
 runCase :: IO ()
 runCase = do
