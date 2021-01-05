@@ -43,6 +43,13 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+  billrd:
+    main:                Main.hs
+    source-dirs:         billrd
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
 
 tests:
   codechef2021-test:

@@ -22,6 +22,17 @@ source-repository head
   type: git
   location: https://github.com/githubuser/codechef2021
 
+executable billrd
+  main-is: Main.hs
+  other-modules:
+      Paths_codechef2021
+  hs-source-dirs:
+      billrd
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
 executable decodeit
   main-is: Main.hs
   other-modules:
