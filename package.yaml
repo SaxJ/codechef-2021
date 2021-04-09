@@ -23,6 +23,7 @@ dependencies:
 - array
 - text
 - containers
+- Decimal
 
 executables:
   divthree:
