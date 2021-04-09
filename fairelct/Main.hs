@@ -5,6 +5,7 @@ import Data.List
 import Data.Maybe
 import Debug.Trace (trace)
 
+
 readInteger :: IO Integer
 readInteger = read <$> getLine
 

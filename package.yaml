@@ -1,10 +1,10 @@
 name:                codechef2021
 version:             0.1.0.0
-github:              "githubuser/codechef2021"
+github:              "SaxJ/codechef-2021"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2021 Author name here"
+author:              "Saxon Jensen"
+maintainer:          "saxon.jensen@gmail.com"
+copyright:           "2021 Saxon Jensen"
 
 extra-source-files:
 - README.md
@@ -22,6 +22,7 @@ dependencies:
 - base >= 4.7 && < 5
 - array
 - text
+- containers
 
 executables:
   divthree:
@@ -48,6 +49,20 @@ executables:
   billrd:
     main:                Main.hs
     source-dirs:         billrd
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+  socks1:
+    main:                Main.hs
+    source-dirs:         socks1
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+  bolt:
+    main:                Main.hs
+    source-dirs:         bolt
     ghc-options:
     - -threaded
     - -rtsopts
